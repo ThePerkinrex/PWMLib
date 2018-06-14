@@ -14,8 +14,11 @@ class ESC {
 	public:
 		ESC(int pin);
 		void write(unsigned long t);
+		void setBatteryFlag();
+		void calibrate(unsigned long min, unsigned long max);
 	private:
 		int _pin;
+		bool _batteryFlag; // To be set with an interrupt
 };
 
 class RCRecv {
