@@ -7,3 +7,6 @@ $(buildDir)PWM.zip:
 
 clean:
 	@rm -r $(buildDir)*
+
+setup:
+	@mkdir "$(buildDir)"
