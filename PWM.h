@@ -16,11 +16,13 @@ class ESC {
 		void write(unsigned long t);
 		void begin(unsigned long min, unsigned long max);
 		void calibrate();
+		void update();
+
+		unsigned long speed;
 	private:
 		int _pin;
-		int _min;
-		int _max;
-		bool _hasBegun;
+		unsigned long _min;
+		unsigned long _max;
 };
 
 class RCRecv {
