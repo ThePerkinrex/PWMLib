@@ -37,7 +37,7 @@ This function should be called after `begin()` and after the batteries haave bee
 
 ##### `void ESC::update()`:
 
-This function should be called while the program is waiting and the motors should be moving. It sets the speed of the motors to the value of [`ESC::speed`](#ESC::speed)
+This function should be called while the program is waiting and the motors should be moving. It sets the speed of the motors to the value of [`ESC::speed`](#escspeed)
 
 ##### `ESC::speed`:
 
