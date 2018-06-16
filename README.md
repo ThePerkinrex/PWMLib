@@ -27,5 +27,21 @@ Then for setting the ESCs speed just use the `write` function. For reading signa
 ##### `void ESC::write(unsigned long t)`:  
 This function takes in an `unsigned long` beacause time can't be negative (`unsigned`) an it can be a lot (`long`)  
 
+##### `void ESC::begin(unsigned long min, unsigned long max)`:
+
+This function starts the calibration of the ESC an should be called while the ESC isn't connected to power. While the program's waiting for the ESC to have power, `update()` should be called. (For more info, check out the [ESC_Calibration](examples/ESC_Calibration/ESC_Calibration.ino) example).
+
+##### `void ESC::calibrate()`:
+
+This function should be called after `begin()` and after the batteries haave been connected to the ESC.
+
+##### `void ESC::update()`:
+
+This function should be called while the program is waiting and the motors should be moving. It sets the speed of the motors to the value of [`ESC::speed`](#ESC::speed)
+
+##### `ESC::speed`:
+
+This variable stores the value of the last set or write. It is of type `unsigned long`
+
 ##### `unsigned long RCRecv::read()`:  
 This function gives out an `unsigned long` number for the same reason the write takes it in
