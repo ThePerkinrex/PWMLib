@@ -30,33 +30,31 @@ void ESC::begin(unsigned long min, unsigned long max){
 	//speed = max; WRITE DOES THIS
 	_min = min;
 	_max = max;
-	_hasBegun = true;
+	// OLD _hasBegun = true;
 }
 
 void ESC::calibrate(){
-	if(_hasBegun){
-		// Connect the batteries
-		write(_min);
-		//speed = _min; Write does this
-		unsigned int start = millis();
-		while(millis() + start < 7000){
-			update();
-		}
-		write(0);
-		start = millis();
-		while(millis() + start < 1000){
-			update();
-		}
-		// Arming
-		write(_min);
-		start = millis();
-		while(millis() + start < 1000){
-			update();
-		}	
+	// Connect the batteries
+	write(_min);
+	//speed = _min; Write does this
+	unsigned int start = millis();
+	while(millis() + start < 7000){
+		update();
+	}
+	write(0);
+	start = millis();
+	while(millis() + start < 1000){
+		update();
+	}
+	// Arming
+	write(_min);
+	start = millis();
+	while(millis() + start < 1000){
+		update();
 	}
 }
 
-ESC::update(){
+void ESC::update(){
 	write(speed);
 }
 
